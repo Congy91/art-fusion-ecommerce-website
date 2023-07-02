@@ -1,0 +1,179 @@
+{% extends 'base_1.html' %}
+
+{% block main %}
+<div class="container w-50 py-4 mx-auto">
+    <h2 class="py-2">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+
+        <!-- Question 1 -->
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link text-warning" type="button" data-toggle="collapse"
+                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Can I return or exchange artwork if I'm not satisfied with my purchase?
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                <div class="card-body">
+                    Yes, we have a hassle-free return and exchange policy. If you're not satisfied with your
+                    artwork, you can return it within 30 days of delivery for a full refund or exchange. Please
+                    review our return policy for more details.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed text-warning" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        How do I know if the artwork will look good in my space?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                <div class="card-body">
+                    We understand the importance of visualizing artwork in your space. That's why we provide a
+                    "View in Room" feature on our website. Simply upload a photo of your space, and you can
+                    preview the artwork to see how it will look in your home or office.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed text-warning" type="button" data-toggle="collapse"
+                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Do you offer international shipping for artwork?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                <div class="card-body">
+                    Absolutely! We offer worldwide shipping for all our artwork. We work with trusted shipping
+                    partners to ensure safe and secure delivery to your location, no matter where you are in the
+                    world. Additional customs duties or taxes may apply, depending on your country's
+                    regulations.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed text-warning" type="button" data-toggle="collapse"
+                        data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Can I request a custom artwork or commission an artist for a specific piece?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                <div class="card-body">
+                    Yes, we offer custom artwork and commission services. If you have a specific idea or vision
+                    in mind, you can contact our customer support team, and we will connect you with talented
+                    artists who specialize in custom work. We will work closely with you to bring your artistic
+                    vision to life.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="card">
+            <div class="card-header" id="headingFive">
+                <h5 class="mb-0">
+                    <button class="btn btn-link text-warning collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        How do I care for and maintain the artwork I purchased?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+                <div class="card-body">
+                    Proper care ensures the longevity and preservation of your artwork. We provide care
+                    instructions along with each purchase, detailing the best practices for handling, cleaning,
+                    and displaying the artwork. Additionally, we recommend framing the artwork using archival
+                    materials to protect it from dust, UV rays, and environmental damage.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container mt-4 w-50 mx-auto">
+    <h2 class="py-2 text-dark">Still cant find the answer? Fill out the contact
+        form
+        below
+    </h2>
+    <form action="" method="POST">
+        <div class="form-row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="John" name="firstname">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Doe" name="lastname">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="johndoe@example.com" name="email">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="orderNumber">Order Number:</label>
+                    <input type="text" class="form-control" id="orderNumber" placeholder="123456" name="orderNumber">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="textArea">Additional Information:</label>
+            <textarea class="form-control" id="textArea" name="textArea" rows="5"
+                placeholder="Please provide us with any additional information."></textarea>
+        </div>
+        <button type="submit" class="btn btn-warning">Submit</button>
+    </form>
+</div>
+<div class="container mt-4 w-50 mx-auto">
+    <div class=" mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Operating Hours</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Monday: 9:00 AM - 6:00 PM</li>
+                    <li class="list-group-item">Tuesday: 9:00 AM - 6:00 PM</li>
+                    <li class="list-group-item">Wednesday: 9:00 AM - 6:00 PM</li>
+                    <li class="list-group-item">Thursday: 9:00 AM - 6:00 PM</li>
+                    <li class="list-group-item">Friday: 9:00 AM - 6:00 PM</li>
+                    <li class="list-group-item">Saturday: 10:00 AM - 4:00 PM</li>
+                    <li class="list-group-item">Sunday: Closed</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Location</h3>
+                <p>123 Main Street</p>
+                <p>City, State, ZIP Code</p>
+                <h3>Contact Information</h3>
+                <p>Email: info@example.com</p>
+                <p>Phone: 123-456-7890</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

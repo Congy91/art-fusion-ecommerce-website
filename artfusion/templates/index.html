@@ -1,0 +1,126 @@
+{% extends 'base_1.html' %}
+
+
+
+{% block main %}
+<section class="artwork-display" id="feature">
+    <p class="text-decoration-none text-dark">
+    <h4 class="border-bottom border-grey w-75 mx-auto heading text-center">Artists</h4>
+    </p>
+    <div class="album py-5 bg-white">
+        <div class="container">
+            <div class="row feature-card">
+                {% for person in artist %}
+                <div class="col-md-4">
+                    <a href="{{ url_for('main.filtered', artid=person.id) }}" class="text-decoration-none text-dark">
+                        <div class="card mb-4 shadow-sm rounded">
+                            <h5 class="card-title text-center pt-3">{{person.fname}}</h5>
+                            <img class="card-img-top" src="{{url_for('static', filename='img/'+person.image)}}"
+                                alt="Artist 1">
+                            <div class="card-body">
+                                <p class="card-text">Paintings: {{person.numberOfPaintings}}</p>
+                                <p class="card-text">Location: {{person.location}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="artwork-display" id="abstract">
+    <p class="text-decoration-none text-dark">
+    <h4 class="border-bottom border-grey w-75 mx-auto heading text-center">Acrylic Paintings</h4>
+    </p>
+    <div class="album py-5 bg-white">
+        <div class="container">
+            <div class="row">
+                {% for card in acrylic_artworks %}
+                <div class="col-md-4 feature-card">
+                    <a href="{{ url_for('main.productpage', artworkid=card.id) }}"
+                        class="text-decoration-none text-dark">
+                        <div class="card mb-4 shadow-sm rounded">
+                            <img src="{{url_for('static', filename='img/'+card.image)}}" alt="place holder image"
+                                class="buy-img">
+                            <div class="card-body">
+                                <h5 class="text-center text-dark">{{card.name}}</h5>
+                                <blockquote class="blockquote">
+                                    <p class="mb-0 text-secondary">{{card.description}}
+                                    </p>
+                                    <footer class="blockquote-footer text-right">
+                                        <cite title="Source">{{card.artistName}}</cite>
+                                    </footer>
+                                </blockquote>
+                                <div class="d-flex flex-column justify-content-center align-items-center">
+                                    <div class="btn-group mb-3">
+                                        <form action="{{ url_for('main.basket') }}">
+                                            <input type="hidden" id="artwork_id" name="artwork_id"
+                                                value="{{ card.id }}">
+                                            <input class="btn btn-warning" type="submit" value="Add">
+                                        </form>
+                                    </div>
+                                    <div class="rating d-block">
+                                        {% for x in range(card.review) %}
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="artwork-display" id="digital">
+    <p class="text-decoration-none text-dark">
+    <h4 class="border-bottom border-grey w-75 mx-auto heading text-center">Water Colour Paintings</h4>
+    </p>
+    <div class="album py-5 bg-white">
+        <div class="container">
+            <div class="row">
+                {% for card in water_artworks %}
+                <div class="col-md-4 feature-card">
+                    <a href="{{ url_for('main.productpage', artworkid=card.id) }}"
+                        class="text-decoration-none text-dark">
+                        <div class="card mb-4 shadow-sm rounded">
+                            <img src="{{url_for('static', filename='img/'+card.image)}}" alt="place holder image"
+                                class="buy-img">
+                            <div class="card-body">
+                                <h5 class="text-center text-dark">{{card.name}}</h5>
+                                <blockquote class="blockquote">
+                                    <p class="mb-0 text-secondary">{{card.description}}
+                                    </p>
+                                    <footer class="blockquote-footer text-right">
+                                        <cite title="Source">{{card.artistName}}</cite>
+                                    </footer>
+                                </blockquote>
+                                <div class="d-flex flex-column justify-content-center align-items-center">
+                                    <div class="btn-group mb-3">
+                                        <form action="{{ url_for('main.basket') }}">
+                                            <input type="hidden" id="artwork_id" name="artwork_id"
+                                                value="{{ card.id }}">
+                                            <input class="btn btn-warning" type="submit" value="Add">
+                                        </form>
+                                    </div>
+                                    <div class="rating d-block">
+                                        {% for x in range(card.review) %}
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

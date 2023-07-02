@@ -1,0 +1,50 @@
+{% extends 'base_1.html' %}
+
+{% block main %}
+
+<section class="artwork-display" id="abstract">
+    <a href="" class="text-decoration-none text-dark">
+        <h4 class="border-bottom border-grey w-75 mx-auto heading text-center">Filtered Artwork</h4>
+    </a>
+    <div class="album py-5 bg-white">
+        <div class="container">
+            <div class="row">
+                {% for art in artwork %}
+                <div class="col-md-4 feature-card">
+                    <a href="{{ url_for('main.productpage', artworkid=art.id) }}"
+                        class="text-decoration-none text-dark">
+                        <div class="card mb-4 shadow-sm rounded">
+                            <img src="{{url_for('static', filename='img/'+art.image)}}" alt="place holder image"
+                                class="buy-img">
+                            <div class="card-body">
+                                <h5 class="text-center text-dark">{{art.name}}</h5>
+                                <blockquote class="blockquote">
+                                    <p class="mb-0 text-secondary">{{art.description}}
+                                    </p>
+                                    <footer class="blockquote-footer text-right">
+                                        <cite title="Source">{{art.artistName}}</cite>
+                                    </footer>
+                                </blockquote>
+                                <div class="d-flex flex-column justify-content-center align-items-center">
+                                    <div class="btn-group mb-3">
+                                        <form action="{{ url_for('main.basket') }}">
+                                            <input type="hidden" id="artwork_id" name="artwork_id" value="{{ art.id }}">
+                                            <input class="btn btn-warning" type="submit" value="Add">
+                                        </form>
+                                    </div>
+                                    <div class="rating d-block">
+                                        {% for x in range(art.review) %}
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

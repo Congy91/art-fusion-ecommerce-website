@@ -1,0 +1,33 @@
+{% extends 'base_1.html' %}
+
+{% block main %}
+<section id="about" class="bg-white mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 pr-5">
+                <h2 class="section-heading">Welcome to ArtFusion</h2>
+                <p class="text-muted">Discover a world of creativity and imagination.</p>
+                <p class="text-muted">At ArtFusion, we believe that art has the power to inspire, transform,
+                    and bring joy to people's lives. We are passionate about connecting artists with art
+                    enthusiasts, providing a platform to showcase their extraordinary talent and unique
+                    creations.</p>
+                <p class="text-muted">Our journey began with a simple idea - to bridge the gap between talented
+                    artists and art lovers around the globe. We noticed that many brilliant artists struggled to
+                    gain recognition and struggled to reach a wider audience due to limited opportunities.
+                    Similarly, art enthusiasts often faced challenges in finding and acquiring exceptional
+                    artwork.</p>
+                <p class="text-muted">Driven by our love for art and the desire to make a positive impact in the
+                    art world, we embarked on a mission to create a space where artists could thrive and art
+                    enthusiasts could explore a vast array of captivating artwork.</p>
+                <p class="text-muted">Our carefully curated collection features a diverse range of artworks,
+                    including paintings, sculptures, photography, and more. Whether you're a seasoned art
+                    collector or a first-time buyer, we aim to make your art-buying experience seamless and
+                    enjoyable.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{url_for('static', filename='img/about_image.png')}}" class="img-fluid" alt="About Us Image">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

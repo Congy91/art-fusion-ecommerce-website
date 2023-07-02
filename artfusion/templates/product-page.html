@@ -1,0 +1,132 @@
+{% extends 'base_2.html' %}
+
+{% block main %}
+<div class="container mt-5">
+    {% for art in artwork_details %}
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <img src="{{url_for('static', filename='img/'+art.image)}}" alt="Product Image" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h2 class="my-2">{{art.name}}</h2>
+            <h4>Price: {{art.price}}</h4>
+            <div class="rating d-block my-2">
+                {% for x in range(art.review) %}
+                <i class="bi bi-star-fill text-warning"></i>
+                {% endfor %}
+            </div>
+            <p>Description: {{art.description}}</p>
+            <p>Dimensions: {{art.artworkSize}}</p>
+            <p class="text-success">In Stock: {{art.inStock}}</p>
+            <form action="{{ url_for('main.basket') }}">
+                <input type="hidden" id="artwork_id" name="artwork_id" value="{{ art.id }}">
+                <input class="btn btn-warning" type="submit" value="Add">
+            </form>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <h3>About the Artist</h3>
+            <p>Artist Name: {{art.artistName}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h3>What others have said!</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">John Doe</h5>
+                            <div class="rating d-block my-2">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </div>
+                            <p class="card-text">"This product exceeded my expectations. The quality is superb!"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Jane Smith</h5>
+                            <div class="rating d-block my-2">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </div>
+                            <p class="card-text">"I love this artwork! It adds a unique touch to my living
+                                room."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Samuel Johnson</h5>
+                            <div class="rating d-block my-2">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </div>
+                            <p class="card-text">"The colors and details in this piece are stunning. Highly
+                                recommended!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="artwork-display" id="feature">
+    <h4 class="border-bottom border-grey w-50 mx-auto heading text-center">Recommended Items</h4>
+    <div class="album py-5 bg-white">
+        <div class="container">
+            <div class="row">
+                {% for card in featured_art %}
+                <div class="col-md-4 feature-card">
+                    <div class="card mb-4 shadow-sm rounded">
+                        <img src="{{url_for('static', filename='img/'+card.image)}}" alt="place holder image"
+                            class="buy-img">
+                        <div class="card-body">
+                            <h5 class="text-center text-dark">{{card.name}}</h5>
+                            <blockquote class="blockquote">
+                                <p class="mb-0 text-secondary">{{card.description}}
+                                </p>
+                                <footer class="blockquote-footer text-right">
+                                    <cite title="Source">{{card.artistName}}</cite>
+                                </footer>
+                            </blockquote>
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <div class="btn-group mb-3">
+                                    <form action="{{ url_for('main.basket') }}">
+                                        <input type="hidden" id="artwork_id" name="artwork_id" value="{{ card.id }}">
+                                        <input class="btn btn-warning" type="submit" value="Add">
+                                    </form>
+                                </div>
+                                <div class="rating d-block">
+                                    {% for x in range(card.review) %}
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
